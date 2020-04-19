@@ -1,4 +1,4 @@
-name: 'Deploy to Firebase'
+name: 'Deploy to Firebase for version tagged and master branch'
 author: 'Sho Mizutani <lowply@github.com>'
 description: 'A GitHub Action to deploy to Firebase Hosting'
 runs:
