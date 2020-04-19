@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "${FIREBASE_TOKEN}" ]; then
     echo "FIREBASE_TOKEN is missing"
@@ -10,9 +10,9 @@ if [ -z "${FIREBASE_PROJECT}" ]; then
     exit 1
 fi
 
-if [ "${GITHUB_REF}" != "refs/heads/master" ]; then
+if ! [[ "refs/tags/v0.0.0" =~ ^refs\/heads\/master$|^refs\/tags\/v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
     echo "Branch: ${GITHUB_REF}"
-    echo "Aborting non-master branch deployment"
+    echo "Aborting non-master or non-version tagged branch deployment"
     exit 1
 fi
 
